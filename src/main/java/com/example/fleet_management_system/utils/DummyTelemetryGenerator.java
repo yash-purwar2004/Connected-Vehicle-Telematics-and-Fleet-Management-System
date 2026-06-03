@@ -1,35 +1,34 @@
-// package com.example.fleet_management_system.utils;
+package com.example.fleet_management_system.utils;
 
-// import java.time.LocalDateTime;
-// import java.util.Random;
+import java.time.LocalDateTime;
+import java.util.Random;
 
-// import org.springframework.scheduling.annotation.Scheduled;
-// import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component;
 
-// import com.example.fleet_management_system.entity.Telemetry;
-// import com.example.fleet_management_system.entity.Vehicle;
+import com.example.fleet_management_system.entity.Telemetry;
+import com.example.fleet_management_system.entity.Vehicle;
 
-// @Component
-// public class DummyTelemetryGenerator {
+@Component
+public class DummyTelemetryGenerator {
 
-//     private final Random random = new Random(); // It is used to generate random telemetry data
-//     @Scheduled(fixedRate = 5000) // It will run every 5 seconds to generate telemetry data for all vehicles
-//     public Telemetry generate(Vehicle vehicle) {
+    private final Random random = new Random(); // It is used to generate random telemetry data
 
-//         Telemetry telemetry = new Telemetry();
+    public Telemetry generate(Vehicle vehicle) {
 
-//         telemetry.setVehicle(vehicle);
+        Telemetry telemetry = new Telemetry();
 
-//         telemetry.setLatitude(9.9252 + random.nextDouble() * 0.02);
+        telemetry.setVehicle(vehicle);
 
-//         telemetry.setLongitude(78.1198 + random.nextDouble() * 0.02);
+        telemetry.setLatitude(9.9252 + random.nextDouble() * 0.02);
 
-//         telemetry.setSpeed(40 + random.nextDouble() * 60);
+        telemetry.setLongitude(78.1198 + random.nextDouble() * 0.02);
 
-//         telemetry.setFuelLevel(20 + random.nextDouble() * 80);
+        telemetry.setSpeed(40 + random.nextDouble() * 60);
 
-//         telemetry.setRecordedAt(LocalDateTime.now());
+        telemetry.setFuelLevel(20 + random.nextDouble() * 80);
 
-//         return telemetry;
-//     }
-// }
+        telemetry.setRecordedAt(LocalDateTime.now());
+
+        return telemetry;
+    }
+}

@@ -2,12 +2,14 @@ package com.example.fleet_management_system.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+@Entity
 public class DriverScore {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +39,9 @@ public class DriverScore {
         this.harshEventCount = harshEventCount;
         this.overspeedCount = overspeedCount;
         this.safetyScore = safetyScore;
+    }
+
+    public DriverScore() {
     }
 
     public int getScoreId() {

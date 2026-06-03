@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 import com.example.fleet_management_system.entity.enums.TripStatus;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,7 +15,7 @@ import jakarta.persistence.ManyToOne;
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer tripId;
+    private int tripId;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_id") // Assuming Vehicle is the vehicle entity. one vehicle can have multiple trips 
@@ -42,11 +40,13 @@ public class Trip {
         this.distanceKm = distanceKm;
         this.tripStatus = tripStatus;
     }
+    public Trip() {
+    }
 
-    public Integer getTripId() {
+    public int getTripId() {
         return tripId;
     }
-    public void setTripId(Integer tripId) {
+    public void setTripId(int tripId) {
         this.tripId = tripId;
     }
     public Vehicle getVehicle() {

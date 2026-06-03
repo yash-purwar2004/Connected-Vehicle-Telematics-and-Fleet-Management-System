@@ -2,12 +2,14 @@ package com.example.fleet_management_system.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+@Entity
 public class FuelLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +27,8 @@ public class FuelLog {
 
     private Double costAmount;
 
-    public FuelLog(Vehicle vehicle, LocalDate refillDate, Double litresRefilled, int odometerReading, Double costAmount) {
-        this.vehicle = vehicle;
-        this.refillDate = refillDate;
-        this.litresRefilled = litresRefilled;
-        this.odometerReading = odometerReading;
-        this.costAmount = costAmount;
+    public FuelLog() {
+
     }
 
 

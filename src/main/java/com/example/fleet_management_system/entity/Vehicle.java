@@ -27,6 +27,9 @@ public class Vehicle {
         this.vehicleStatus = vehicleStatus;
     }
 
+    public Vehicle() {
+    }
+
     public int getVehicleId() {
         return vehicleId;
     }

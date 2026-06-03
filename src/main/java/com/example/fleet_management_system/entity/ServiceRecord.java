@@ -2,16 +2,18 @@ package com.example.fleet_management_system.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+@Entity
 public class ServiceRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer serviceRecordId;
+    private int serviceRecordId;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
@@ -21,13 +23,13 @@ public class ServiceRecord {
 
     private String serviceType;
 
-    private Integer odometerReading;
+    private int odometerReading;
 
     private Double serviceCost;
 
     private LocalDate nextServiceDueDate;
 
-    public ServiceRecord(Vehicle vehicle, LocalDate serviceDate, String serviceType, Integer odometerReading, Double serviceCost, LocalDate nextServiceDueDate) {
+    public ServiceRecord(Vehicle vehicle, LocalDate serviceDate, String serviceType, int odometerReading, Double serviceCost, LocalDate nextServiceDueDate) {
         this.vehicle = vehicle;
         this.serviceDate = serviceDate;
         this.serviceType = serviceType;
@@ -36,11 +38,14 @@ public class ServiceRecord {
         this.nextServiceDueDate = nextServiceDueDate;
     }
 
-    public Integer getServiceRecordId() {
+    public ServiceRecord() {
+    }
+
+    public int getServiceRecordId() {
         return serviceRecordId;
     }
 
-    public void setServiceRecordId(Integer serviceRecordId) {
+    public void setServiceRecordId(int serviceRecordId) {
         this.serviceRecordId = serviceRecordId;
     }
 
