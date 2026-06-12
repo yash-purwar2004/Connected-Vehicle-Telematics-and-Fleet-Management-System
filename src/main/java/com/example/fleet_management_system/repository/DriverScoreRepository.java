@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.fleet_management_system.entity.DriverScore;
 
 @Repository
-public interface DriverScoreRepository
-        extends JpaRepository<DriverScore, Integer> {
+public interface DriverScoreRepository extends JpaRepository<DriverScore, Integer> {
 
 }
