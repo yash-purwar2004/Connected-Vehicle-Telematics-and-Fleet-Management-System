@@ -7,25 +7,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.fleet_management_system.entity.User;
-import com.example.fleet_management_system.repository.UserRepository;
+import com.example.fleet_management_system.service.AdminService;
 
 @Controller
 public class AdminController {
 
-    private final UserRepository userRepository;
-    public AdminController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    private final AdminService adminService;
+
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
     }
 
     @GetMapping("/admin/dashboard")
     public String dashboard(Model model) {
-        return "admin/dashboard"; 
+
+        model.addAttribute("totalUsers",
+                adminService.getTotalUsers());
+
+        return "admin/dashboard";
     }
 
     @GetMapping("/admin/users")
     public String users(Model model) {
-        List<User> users = userRepository.findAll();
+
+        List<User> users = adminService.getAllUsers();
+
         model.addAttribute("users", users);
+
         return "admin/user";
     }
 }
